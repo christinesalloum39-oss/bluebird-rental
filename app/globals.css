@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: 'Inter', sans-serif; color: #1A1A2E; background: #fff; overflow-x: hidden; }
+
+html.dark-mode body {
+  color: #F8F7FF;
+  background: #0F1020;
+}
+
+html.dark-mode header,
+html.dark-mode .bg-white {
+  background-color: #121229 !important;
+}
+
+html.dark-mode [class*="bg-[#F8F7FF]"],
+html.dark-mode [class*="bg-silk"] {
+  background-color: #0F1020 !important;
+}
+
+html.dark-mode [class*="text-ink"] {
+  color: rgba(248,247,255,.86) !important;
+}
+
+html.dark-mode [class*="text-ink/40"],
+html.dark-mode [class*="text-ink/35"],
+html.dark-mode [class*="text-ink/30"],
+html.dark-mode [class*="text-ink/25"] {
+  color: rgba(248,247,255,.46) !important;
+}
+
+html.dark-mode [class*="text-ink/50"],
+html.dark-mode [class*="text-ink/55"],
+html.dark-mode [class*="text-ink/60"],
+html.dark-mode [class*="text-ink/70"] {
+  color: rgba(248,247,255,.68) !important;
+}
+
+html.dark-mode [class*="border-purple-100"],
+html.dark-mode [class*="border-purple-50"],
+html.dark-mode [class*="border-ink/10"] {
+  border-color: rgba(168,85,247,.2) !important;
+}
+
+html.dark-mode [class*="bg-purple-50"] {
+  background-color: rgba(124,58,237,.14) !important;
+}
+
+html.dark-mode input,
+html.dark-mode select,
+html.dark-mode textarea {
+  color: #F8F7FF;
+  background-color: #181832 !important;
+  border-color: rgba(168,85,247,.22) !important;
+}
+
+html.dark-mode input::placeholder,
+html.dark-mode textarea::placeholder {
+  color: rgba(248,247,255,.35);
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #F8F7FF; }
+::-webkit-scrollbar-thumb { background: linear-gradient(#6B21A8, #7C3AED); border-radius: 2px; }
+
+/* ── Reveal ── */
+.reveal { opacity:0; transform:translateY(24px); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+.reveal.in { opacity:1; transform:translateY(0); }
+.d1{transition-delay:.06s} .d2{transition-delay:.14s} .d3{transition-delay:.22s} .d4{transition-delay:.30s} .d5{transition-delay:.40s}
+
+/* ── Purple gradient text ── */
+.text-purple-grad {
+  background: linear-gradient(135deg, #6B21A8 0%, #7C3AED 50%, #8B5CF6 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+/* ── Eyebrow — light bg ── */
+.eyebrow-bb {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: .68rem; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: #6B21A8;
+}
+.eyebrow-bb::before { content:''; display:block; width:20px; height:1.5px; background:#6B21A8; border-radius:2px; }
+
+/* ── Eyebrow — dark bg ── */
+.eyebrow-dark {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: .68rem; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: #A855F7;
+}
+.eyebrow-dark::before { content:''; display:block; width:20px; height:1.5px; background:#A855F7; border-radius:2px; }
+
+/* ── Primary button ── */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0;
+  border-radius: 50px; overflow: hidden; transition: all .3s;
+  box-shadow: 0 8px 24px rgba(107,33,168,.28);
+}
+.btn-primary .lbl {
+  background: linear-gradient(135deg, #6B21A8, #7C3AED);
+  color: #fff; font-weight: 600; font-size: .82rem;
+  letter-spacing: .06em; text-transform: uppercase; padding: 14px 26px;
+}
+.btn-primary .ico {
+  background: #4C1D95; color: #fff;
+  width: 48px; height: 48px; display:flex; align-items:center; justify-content:center;
+  transition: all .3s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(107,33,168,.38); }
+.btn-primary:hover .ico { background: #3b1676; }
+
+/* ── Outline button ── */
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 0;
+  border-radius: 50px; overflow: hidden; transition: all .3s;
+  border: 1.5px solid rgba(107,33,168,.28);
+}
+.btn-outline .lbl {
+  color: #6B21A8; font-weight: 600; font-size: .82rem;
+  letter-spacing: .06em; text-transform: uppercase; padding: 13px 26px;
+  background: transparent;
+}
+.btn-outline .ico {
+  width: 48px; height: 48px; display:flex; align-items:center; justify-content:center;
+  color: #6B21A8; background: rgba(107,33,168,.05);
+}
+.btn-outline:hover { border-color: #6B21A8; transform: translateY(-2px); }
+
+/* ── Outline dark ── */
+.btn-outline-dark {
+  display: inline-flex; align-items: center; gap: 0;
+  border-radius: 50px; overflow: hidden; transition: all .3s;
+  border: 1.5px solid rgba(168,85,247,.3);
+}
+.btn-outline-dark .lbl {
+  color: #fff; font-weight: 600; font-size: .82rem;
+  letter-spacing: .06em; text-transform: uppercase; padding: 13px 26px;
+  background: rgba(255,255,255,.05);
+}
+.btn-outline-dark .ico {
+  width: 48px; height: 48px; display:flex; align-items:center; justify-content:center;
+  color: #A855F7; background: rgba(168,85,247,.08);
+}
+.btn-outline-dark:hover { border-color: rgba(168,85,247,.7); transform: translateY(-2px); }
+
+/* ── Dividers ── */
+.divider { height:1px; background:linear-gradient(90deg,transparent,rgba(107,33,168,.12),transparent); }
+.divider-dark { height:1px; background:linear-gradient(90deg,transparent,rgba(168,85,247,.18),transparent); }
+
+/* ── Input focus ── */
+input:focus, select:focus, textarea:focus {
+  outline: none; border-color: #7C3AED !important;
+  box-shadow: 0 0 0 3px rgba(124,58,237,.1);
+}
+
+/* ── Card hover ── */
+.card-lift { transition: all .4s cubic-bezier(.16,1,.3,1); }
+.card-lift:hover { transform: translateY(-5px); }
+
+/* ── Hover text-gold utility ── */
+.hover\:text-gold:hover { color: #C8A96E !important; }
+
+/* ── Mobile responsiveness extras ── */
+@media (max-width: 640px) {
+  /* Prevent horizontal overflow */
+  body { overflow-x: hidden; }
+
+  /* Fleet carousel: show 1 card on mobile */
+  #fleet .flex.gap-4 > div {
+    min-width: calc(100% - 0px) !important;
+  }
+
+  /* Hero stats: wrap on small screens */
+  .stats-row { flex-wrap: wrap; gap: 1.5rem !important; }
+
+  /* Booking widget full width on mobile */
+  #booking { max-width: 100%; }
+}
+
+/* Smooth scrollbar hide for filter tabs */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ══════════════════════════════════════
+   MOBILE FIXES — full phone support
+   ══════════════════════════════════════ */
+
+/* Prevent any horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Ensure images never overflow */
+img { max-width: 100%; height: auto; }
+
+/* Hero booking widget — full width on mobile */
+@media (max-width: 1023px) {
+  #booking {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* Fleet carousel — 1 card on small screens */
+@media (max-width: 639px) {
+  #fleet .flex.gap-4 > div {
+    min-width: calc(100% - 0px) !important;
+  }
+  /* Stats row wraps on mobile */
+  .stats-row {
+    flex-wrap: wrap;
+    gap: 1.5rem !important;
+  }
+}
+
+/* Floating call button — keep it neatly in corner on all sizes */
+@media (max-width: 480px) {
+  .fixed.bottom-6.left-6 {
+    bottom: 1.25rem;
+    left: 1.25rem;
+  }
+}
+
+/* Booking form — inputs comfortable on mobile */
+@media (max-width: 480px) {
+  input, select, textarea {
+    font-size: 16px !important; /* prevents iOS zoom on focus */
+  }
+}
+
+/* Navbar mobile menu full-width */
+@media (max-width: 1023px) {
+  nav { width: 100%; }
+}
+
+/* Filter tabs scrollable without visible scrollbar */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* SUBMISSION FIXES — Vercel + mobile */
+html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+img, video { max-width: 100%; height: auto; }
+
+@media (max-width: 768px) {
+  /* Hide the vertical purple scroll hint/line on phones */
+  .scroll-hint-mobile-hide { display: none !important; }
+}
